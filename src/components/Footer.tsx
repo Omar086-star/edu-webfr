@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="container-wide px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
-            <h3 className="font-display text-lg font-bold text-foreground mb-3">DevPortfolio</h3>
+            <h3 className="font-display text-lg font-bold text-foreground mb-3">edu-web.fr</h3>
             <p className="text-sm text-muted-foreground leading-relaxed">
               Professional web development, administrative coordination, and consulting services.
             </p>
@@ -48,7 +48,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-10 pt-6 border-t border-border text-center text-sm text-muted-foreground">
-          © {new Date().getFullYear()} DevPortfolio. All rights reserved.
+          © {new Date().getFullYear()} edu-web.fr. All rights reserved.
         </div>
       </div>
     </footer>
