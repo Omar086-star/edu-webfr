@@ -51,7 +51,7 @@ function ProjectForm({ project, onSave, onCancel }: { project?: Project; onSave:
     sourceCodeUrl: project?.sourceCodeUrl || "",
     coverImage: project?.coverImage || "",
     isFeatured: project?.isFeatured || false,
-    isPublished: project?.isPublished || true,
+    isPublished: project?.isPublished ?? true,
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
 
