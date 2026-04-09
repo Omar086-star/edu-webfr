@@ -19,7 +19,7 @@ export default function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur-xl">
       <div className="container-wide flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link to="/" className="font-display text-xl font-bold text-foreground tracking-tight" onClick={() => trackClick("logo")}>
-          DevPortfolio
+          edu-web.fr
         </Link>
 
         {/* Desktop nav */}
