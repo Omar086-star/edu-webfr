@@ -198,3 +198,46 @@
 [dir="rtl"] {
   direction: rtl;
 }
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 7s linear infinite;
+}
+
+@keyframes container-crash {
+  0% {
+    transform: translateX(0) rotate(0deg);
+  }
+
+  18% {
+    transform: translateX(-14px) rotate(-2.5deg);
+  }
+
+  35% {
+    transform: translateX(12px) rotate(2deg);
+  }
+
+  52% {
+    transform: translateX(-8px) rotate(-1.5deg);
+  }
+
+  68% {
+    transform: translateX(6px) rotate(1deg);
+  }
+
+  82% {
+    transform: translateX(-3px) rotate(-0.5deg);
+  }
+
+  100% {
+    transform: translateX(0) rotate(0deg);
+  }
+}
+
+.hover\:animate-container-crash:hover {
+  animation: container-crash 0.75s cubic-bezier(0.36, 0, 0.66, -0.56);
+}

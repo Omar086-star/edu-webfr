@@ -15,6 +15,11 @@ import Contact from "@/pages/Contact";
 import Admin from "@/pages/Admin";
 import Privacy from "@/pages/Privacy";
 import NotFound from "@/pages/NotFound";
+import SmoothScroll from "@/components/SmoothScroll";
+import AdministrativeCoordination from "@/pages/AdministrativeCoordination";
+import WebDevelopment from "@/pages/WebDevelopment";
+import TechnicalConsulting from "@/pages/TechnicalConsulting";
+
 
 const queryClient = new QueryClient();
 
@@ -37,8 +42,16 @@ const App = () => (
                 <Route path="/admin" element={<Admin />} />
                 <Route path="/privacy" element={<Privacy />} />
                 <Route path="*" element={<NotFound />} />
+             <Route
+  path="/administrative-coordination"  element={<AdministrativeCoordination />}/>
+          <Route path="/web-development" element={<WebDevelopment />} />
+                       <Route path="/TechnicalConsulting" element={<TechnicalConsulting />} />
+
+             
+             
               </Routes>
             </Layout>
+            <SmoothScroll />
           </BrowserRouter>
         </AdminAuthProvider>
       </ProjectsProvider>

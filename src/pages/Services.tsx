@@ -7,24 +7,51 @@ import { trackClick } from "@/lib/analytics";
 const services = [
   {
     icon: Code,
-    title: "Web Development",
-    description: "I build modern, responsive web applications using industry-leading technologies. From single-page applications to complex platforms, every project is crafted for performance, accessibility, and maintainability.",
-    value: "Get a robust, scalable web presence that serves your users and grows with your business.",
-    deliverables: ["Custom web applications", "Responsive landing pages", "E-commerce solutions", "API development & integration", "Performance optimization", "Code review & refactoring"],
+    title: "Web Development & Digital Platforms",
+    description:
+      "I design and build modern websites and digital platforms for associations, educational initiatives, legal offices, magazines, and service-based organizations.",
+    value:
+      "A professional digital presence that presents your mission clearly and builds trust with partners, beneficiaries, and visitors.",
+    deliverables: [
+      "Association and NGO websites",
+      "Educational and magazine websites",
+      "Legal office websites",
+      "Responsive landing pages",
+      "Multilingual interfaces",
+      "Website deployment",
+    ],
   },
   {
     icon: Users,
-    title: "Administrative Coordination",
-    description: "I help organizations streamline their workflows, manage projects effectively, and keep teams aligned. From documentation to stakeholder communication, I ensure nothing falls through the cracks.",
-    value: "Save time and reduce friction with organized, efficient project operations.",
-    deliverables: ["Project planning & tracking", "Documentation & reporting", "Stakeholder communication", "Process optimization", "Team coordination", "Meeting facilitation & follow-up"],
+    title: "Administrative & Project Coordination",
+    description:
+      "I support organizations in structuring projects, coordinating teams, preparing documentation, and transforming ideas into clear operational plans.",
+    value:
+      "Better organization, clearer workflows, and stronger communication between teams, partners, and stakeholders.",
+    deliverables: [
+      "Project planning",
+      "Concept notes",
+      "Administrative documentation",
+      "Partner communication",
+      "Workflow organization",
+      "Follow-up and reporting",
+    ],
   },
   {
     icon: Lightbulb,
-    title: "Technical Consulting",
-    description: "I provide strategic guidance on technology decisions, helping businesses choose the right tools, architectures, and approaches for their unique needs. My advice is practical, unbiased, and focused on long-term value.",
-    value: "Make confident technology decisions backed by real-world experience and strategic insight.",
-    deliverables: ["Technology assessment", "Architecture planning", "Digital transformation strategy", "Vendor evaluation", "Technical due diligence", "Training & knowledge transfer"],
+    title: "Data Systems & Technical Consulting",
+    description:
+      "I build and advise on practical digital systems for data collection, referral management, filtering, search, export, and internal monitoring.",
+    value:
+      "Reliable tools that help teams organize information, follow cases, and make better decisions based on structured data.",
+    deliverables: [
+      "Referral management systems",
+      "Data filtering platforms",
+      "Search and pagination logic",
+      "CSV export systems",
+      "Supabase integration",
+      "Technical planning and consulting",
+    ],
   },
 ];
 
