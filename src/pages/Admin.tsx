@@ -221,39 +221,52 @@ export default function Admin() {
             </div>
           </div>
 
-          {view === "create" && (
-            <div>
-              <h2 className="font-display text-xl font-semibold text-foreground mb-6">Create Project</h2>
-<ProjectForm
-  project={editingProject}
-  onSave={async (data) => {
-    try {
-      await updateProject(editingId!, data);
-      setView("list");
-      setEditingId(null);
-    } catch (error) {
-      console.error("Failed to update project:", error);
-      alert("Project was not updated. Check Supabase connection or RLS policy.");
-    }
-  }}
-  onCancel={() => {
-    setView("list");
-    setEditingId(null);
-  }}
-/>
-            </div>
-          )}
+      {view === "create" && (
+  <div>
+    <h2 className="font-display text-xl font-semibold text-foreground mb-6">
+      Create Project
+    </h2>
 
-          {view === "edit" && editingProject && (
-            <div>
-              <h2 className="font-display text-xl font-semibold text-foreground mb-6">Edit Project</h2>
-              <ProjectForm
-                project={editingProject}
-                onSave={(data) => { updateProject(editingId!, data); setView("list"); setEditingId(null); }}
-                onCancel={() => { setView("list"); setEditingId(null); }}
-              />
-            </div>
-          )}
+    <ProjectForm
+      onSave={async (data) => {
+        try {
+          await addProject(data);
+          setView("list");
+        } catch (error) {
+          console.error("Failed to create project:", error);
+          alert("Project was not created. Check Supabase connection or RLS policy.");
+        }
+      }}
+      onCancel={() => setView("list")}
+    />
+  </div>
+)}
+
+  {view === "edit" && editingProject && editingId && (
+  <div>
+    <h2 className="font-display text-xl font-semibold text-foreground mb-6">
+      Edit Project
+    </h2>
+
+    <ProjectForm
+      project={editingProject}
+      onSave={async (data) => {
+        try {
+          await updateProject(editingId, data);
+          setView("list");
+          setEditingId(null);
+        } catch (error) {
+          console.error("Failed to update project:", error);
+          alert("Project was not updated. Check Supabase connection or RLS policy.");
+        }
+      }}
+      onCancel={() => {
+        setView("list");
+        setEditingId(null);
+      }}
+    />
+  </div>
+)}
 
           {view === "list" && (
             <>
