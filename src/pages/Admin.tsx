@@ -224,10 +224,23 @@ export default function Admin() {
           {view === "create" && (
             <div>
               <h2 className="font-display text-xl font-semibold text-foreground mb-6">Create Project</h2>
-              <ProjectForm
-                onSave={(data) => { addProject(data); setView("list"); }}
-                onCancel={() => setView("list")}
-              />
+<ProjectForm
+  project={editingProject}
+  onSave={async (data) => {
+    try {
+      await updateProject(editingId!, data);
+      setView("list");
+      setEditingId(null);
+    } catch (error) {
+      console.error("Failed to update project:", error);
+      alert("Project was not updated. Check Supabase connection or RLS policy.");
+    }
+  }}
+  onCancel={() => {
+    setView("list");
+    setEditingId(null);
+  }}
+/>
             </div>
           )}
 
