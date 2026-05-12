@@ -118,7 +118,7 @@ export default function Home() {
     transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
   >
     <span className="inline-block text-xs font-semibold uppercase tracking-widest text-orange-300 mb-4">
-      Web Developer & Consultant
+     Omar MULLA : Web Developer & Consultant
     </span>
 
     <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight text-balance">

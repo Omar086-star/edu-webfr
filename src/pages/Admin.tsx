@@ -8,30 +8,56 @@ import type { Project } from "@/lib/types";
 
 function AdminLogin() {
   const { login } = useAdminAuth();
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!login(password)) setError(true);
+    const ok = await login(email, password);
+    if (!ok) setError(true);
   };
 
   return (
     <div className="section-padding flex items-center justify-center min-h-[60vh]">
       <div className="w-full max-w-sm">
-        <h1 className="font-display text-2xl font-bold text-foreground text-center mb-6">Admin Login</h1>
+        <h1 className="font-display text-2xl font-bold text-foreground text-center mb-6">
+          Admin Login
+        </h1>
+
         <form onSubmit={handleSubmit} className="space-y-4">
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value);
+              setError(false);
+            }}
+            className="w-full px-4 py-2.5 rounded-xl border bg-card text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-ring border-border"
+          />
+
           <input
             type="password"
             placeholder="Password"
             value={password}
-            onChange={(e) => { setPassword(e.target.value); setError(false); }}
-            className={`w-full px-4 py-2.5 rounded-xl border bg-card text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-ring ${error ? "border-destructive" : "border-border"}`}
+            onChange={(e) => {
+              setPassword(e.target.value);
+              setError(false);
+            }}
+            className="w-full px-4 py-2.5 rounded-xl border bg-card text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-ring border-border"
           />
-          {error && <p className="text-xs text-destructive">Invalid password</p>}
-          <button type="submit" className="btn-primary w-full">Login</button>
+
+          {error && (
+            <p className="text-xs text-destructive">
+              Invalid email or password
+            </p>
+          )}
+
+          <button type="submit" className="btn-primary w-full">
+            Login
+          </button>
         </form>
-        <p className="text-xs text-muted-foreground text-center mt-4">Demo password: admin123</p>
       </div>
     </div>
   );

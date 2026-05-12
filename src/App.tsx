@@ -33,21 +33,20 @@ const App = () => (
           <BrowserRouter>
             <Layout>
               <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/services" element={<Services />} />
-                <Route path="/projects" element={<Projects />} />
-                <Route path="/projects/:slug" element={<ProjectDetail />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/admin" element={<Admin />} />
-                <Route path="/privacy" element={<Privacy />} />
-                <Route path="*" element={<NotFound />} />
-             <Route
-  path="/administrative-coordination"  element={<AdministrativeCoordination />}/>
-          <Route path="/web-development" element={<WebDevelopment />} />
-                       <Route path="/TechnicalConsulting" element={<TechnicalConsulting />} />
+<Route path="/" element={<Home />} />
+<Route path="/about" element={<About />} />
+<Route path="/services" element={<Services />} />
+<Route path="/projects" element={<Projects />} />
+<Route path="/projects/:slug" element={<ProjectDetail />} />
+<Route path="/contact" element={<Contact />} />
+<Route path="/admin" element={<Admin />} />
+<Route path="/privacy" element={<Privacy />} />
+<Route path="*" element={<NotFound />} />
+<Route path="/administrative-coordination"  element={<AdministrativeCoordination />}/>
+<Route path="/web-development" element={<WebDevelopment />} />
+<Route path="/TechnicalConsulting" element={<TechnicalConsulting />} />
 
-             
+
              
               </Routes>
             </Layout>

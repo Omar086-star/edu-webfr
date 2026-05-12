@@ -1,38 +1,54 @@
-import React, { createContext, useContext, useState, useCallback } from "react";
-
-// Simple admin auth for demo - in production, use proper auth
-const ADMIN_KEY = "portfolio_admin_session";
+import React, { createContext, useContext, useEffect, useState, useCallback } from "react";
+import { supabase } from "./supabase";
 
 interface AdminAuthContextType {
   isAuthenticated: boolean;
-  login: (password: string) => boolean;
-  logout: () => void;
+  loading: boolean;
+  login: (email: string, password: string) => Promise<boolean>;
+  logout: () => Promise<void>;
 }
 
 const AdminAuthContext = createContext<AdminAuthContextType | undefined>(undefined);
 
 export function AdminAuthProvider({ children }: { children: React.ReactNode }) {
-  const [isAuthenticated, setIsAuthenticated] = useState(() => {
-    return sessionStorage.getItem(ADMIN_KEY) === "true";
-  });
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [loading, setLoading] = useState(true);
 
-  const login = useCallback((password: string) => {
-    // Demo password - replace with proper auth in production
-    if (password === "admin123") {
-      sessionStorage.setItem(ADMIN_KEY, "true");
-      setIsAuthenticated(true);
-      return true;
-    }
-    return false;
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data }) => {
+      setIsAuthenticated(!!data.session);
+      setLoading(false);
+    });
+
+    const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => {
+      setIsAuthenticated(!!session);
+      setLoading(false);
+    });
+
+    return () => {
+      listener.subscription.unsubscribe();
+    };
   }, []);
 
-  const logout = useCallback(() => {
-    sessionStorage.removeItem(ADMIN_KEY);
+  const login = useCallback(async (email: string, password: string) => {
+    const { error } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
+
+    if (error) return false;
+
+    setIsAuthenticated(true);
+    return true;
+  }, []);
+
+  const logout = useCallback(async () => {
+    await supabase.auth.signOut();
     setIsAuthenticated(false);
   }, []);
 
   return (
-    <AdminAuthContext.Provider value={{ isAuthenticated, login, logout }}>
+    <AdminAuthContext.Provider value={{ isAuthenticated, loading, login, logout }}>
       {children}
     </AdminAuthContext.Provider>
   );

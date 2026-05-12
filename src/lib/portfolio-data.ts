@@ -510,7 +510,7 @@ export const portfolioProjects: PortfolioProject[] = [
   fullDescription:
     "Designed and structured a website for Deir Al-Ezz Campaign, a community-led initiative supporting the recovery and reconstruction of Deir ez-Zor. The website presents the campaign identity, donation channels, campaign overview, financial target, key sectors, upcoming projects, partners, and public communication sections.",
   coverImage: "/deer.png",
-          liveUrl: "https://www.deer-alezz.com/",
+  liveUrl: "https://www.deer-alezz.com/",
 
   toolsUsed: [
     "React",
