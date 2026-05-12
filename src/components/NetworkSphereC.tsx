@@ -38,7 +38,7 @@ function SphereNetwork() {
 
   useFrame(() => {
     if (groupRef.current) {
-      groupRef.current.rotation.y += 0.0015;
+      groupRef.current.rotation.y += 0.0025;
       groupRef.current.rotation.x += 0.02;
     }
   });

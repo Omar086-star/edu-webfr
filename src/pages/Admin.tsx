@@ -5,6 +5,7 @@ import { useProjects } from "@/lib/projects-context";
 import { Plus, Edit, Trash2, Eye, LogOut, ExternalLink } from "lucide-react";
 import SEOHead from "@/components/SEOHead";
 import type { Project } from "@/lib/types";
+import { seedProjects } from "@/lib/seed-projects";
 
 function AdminLogin() {
   const { login } = useAdminAuth();
@@ -218,6 +219,16 @@ export default function Admin() {
                 <button onClick={() => setView("create")} className="btn-primary text-sm"><Plus size={16} /> New Project</button>
               )}
               <button onClick={() => { logout(); navigate("/"); }} className="btn-secondary text-sm"><LogOut size={16} /></button>
+           <button
+  onClick={async () => {
+    await seedProjects();
+    alert("Projects inserted successfully");
+    window.location.reload();
+  }}
+  className="btn-secondary text-sm"
+>
+  Import Old Projects
+</button>
             </div>
           </div>
 
