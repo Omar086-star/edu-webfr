@@ -14,6 +14,7 @@ import ProjectCard from "@/components/ProjectCard";
 import MotionReveal from "@/components/MotionReveal";
 import NetworkSphere from "@/components/NetworkSphere";
 import NetworkSphereC from "@/components/NetworkSphereC";
+import NetworkSphereCC from "@/components/NetworkSphereCC";
 
 import { trackClick } from "@/lib/analytics";
 import { portfolioProjects } from "@/lib/portfolio-data";
@@ -373,6 +374,7 @@ export default function Home() {
         <section className="relative h-screen bg-blackss overflow-hidden">
   <NetworkSphere />
   <NetworkSphereC />
+  <NetworkSphereCC />
 
   <div className="relative z-10 flex justify-between px-20 pt-20">
     <h1 className="text-white/100 text-2xl"> </h1>
